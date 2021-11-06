@@ -2119,3 +2119,6 @@ java.nio.file.FileSystemException: C:\Users\ygryi\Documents\dev\stm32g0\lab1_pro
 !MESSAGE Could not delete: C:\Users\ygryi\Documents\dev\stm32g0\lab1_prob3_ali\Debug.
 !SUBENTRY 2 org.eclipse.core.resources 4 273 2021-11-06 10:13:15.680
 !MESSAGE Could not delete 'C:\Users\ygryi\Documents\dev\stm32g0\lab1_prob3_ali'.
+
+!ENTRY org.eclipse.debug.core 4 5012 2021-11-06 10:17:40.268
+!MESSAGE Launch configuration asm (1) does not exist

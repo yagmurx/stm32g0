@@ -118,8 +118,8 @@ main:
 	// Setup PB4 as OUTPUT, write 01 to bits [8:9] in MODER
 	ldr r6, = GPIOB_MODER
 	ldr r5, [r6]
-	movs r4, 0x2 // r4 = 0000_0000_0000_0010
-	lsls r4, r4, #8 // r4 = 0000_0010_0000_0000
+	movs r4, #3 // r4 = 0000_0000_0000_0011
+	lsls r4, r4, #8 // r4 = 0000_011_0000_0000
 	bics r5, r5, r4 //clean bits [8:9]
 	movs r4, 0x1 // r4 = 0000_0000_0000_0001
 	lsls r4, r4, #8 // r4 = 0000_0001_0000_0000

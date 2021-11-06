@@ -3,8 +3,10 @@
  *
  * author: Yagmur Yildiz
  *
- * PROBLEM 2: Write code that will blink 1 external LED at roughly 1 second intervals.
+ * PROBLEM 5: Write code that will blink 1 external LED at roughly 1 second intervals.
  * DATE: 06.11.2021
+ *
+ * NOTE: I used PB4 as OUTPUT for external LED
  */
 
 
@@ -159,14 +161,9 @@ loop:
 
 	b loop
 
+	pop {pc}
+
 delay:
 	subs r1, r1, #1
 	bne delay
 	bx lr
-
-	/* for(;;); */
-	b .
-
-	/* this should never get executed */
-	nop
-

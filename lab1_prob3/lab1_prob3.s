@@ -1,10 +1,10 @@
 /*
  * asm.s
  *
- * author: Furkan Cayci
+ * author: Yagmur Yildiz
  *
- * description: Added the necessary stuff for turning on the green LED on the
- *   G031K8 Nucleo board. Mostly for teaching.
+ * PROBLEM 2: Write code that will light up the on-board LED connected to pin PC6.
+ * DATE: 06.11.2021
  */
 
 
@@ -28,9 +28,10 @@
 .equ RCC_BASE,         (0x40021000)          // RCC base address
 .equ RCC_IOPENR,       (RCC_BASE   + (0x34)) // RCC IOPENR register offset
 
-.equ GPIOC_BASE,       (0x50000800)          // GPIOC base address
-.equ GPIOC_MODER,      (GPIOC_BASE + (0x00)) // GPIOC MODER register offset
-.equ GPIOC_ODR,        (GPIOC_BASE + (0x14)) // GPIOC ODR register offset
+.equ GPIOB_BASE,       (0x50000400)          // GPIOB base address
+.equ GPIOB_MODER,      (GPIOB_BASE + (0x00)) // GPIOB MODER offset
+.equ GPIOB_ODR,        (GPIOB_BASE + (0x14)) // GPIOB ODR  offset
+.equ GPIOB_IDR, 	   (GPIOB_BASE + (0x10)) // GPIOB IDR offset
 
 
 /* vector table, +1 thumb mode */
@@ -107,29 +108,28 @@ Default_Handler:
 /* main function */
 .section .text
 main:
-	/* enable GPIOC clock, bit2 on IOPENR */
+	/* enable GPIOB clock, bit2 on IOPENR */
 	ldr r6, =RCC_IOPENR
 	ldr r5, [r6]
-	/* movs expects imm8, so this should be fine */
-	movs r4, 0x4
+	movs r4, 0x2
 	orrs r5, r5, r4
 	str r5, [r6]
 
-	/* setup PC6 for led 01 for bits 12-13 in MODER */
-	ldr r6, =GPIOC_MODER
+	// Setup PB4 as OUTPUT, write 01 to bits [8:9] in MODER
+	ldr r6, = GPIOB_MODER
 	ldr r5, [r6]
-	/* cannot do with movs, so use pc relative */
-	ldr r4, =0x3000
-	mvns r4, r4
-	ands r5, r5, r4
-	ldr r4, =0x1000
-	orrs r5, r5, r4
+	movs r4, 0x2 // r4 = 0000_0000_0000_0010
+	lsls r4, r4, #8 // r4 = 0000_0010_0000_0000
+	bics r5, r5, r4 //clean bits [8:9]
+	movs r4, 0x1 // r4 = 0000_0000_0000_0001
+	lsls r4, r4, #8 // r4 = 0000_0001_0000_0000
+	orrs r5, r5, r4 // write 01 to bits [8:9]
 	str r5, [r6]
 
-	/* turn on led connected to C6 in ODR */
-	ldr r6, =GPIOC_ODR
+	/* turn on led connected to B4 in ODR */
+	ldr r6, = GPIOB_ODR
 	ldr r5, [r6]
-	movs r4, 0x40
+	movs r4, 0x10
 	orrs r5, r5, r4
 	str r5, [r6]
 

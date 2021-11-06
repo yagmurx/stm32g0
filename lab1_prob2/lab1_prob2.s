@@ -1,10 +1,10 @@
 /*
  * asm.s
  *
- * author: Furkan Cayci
+ * author: Yagmur Yildiz
  *
- * description: Added the necessary stuff for turning on the green LED on the
- *   G031K8 Nucleo board. Mostly for teaching.
+ * PROBLEM 2: Write code that will light up the on-board LED connected to pin PC6.
+ * DATE: 06.11.2021
  */
 
 
@@ -115,19 +115,19 @@ main:
 	orrs r5, r5, r4
 	str r5, [r6]
 
-	/* setup PC6 for led 01 for bits 12-13 in MODER */
-	ldr r6, =GPIOC_MODER
+	// Setup PC6 as OUTPUT, write 01 to bits [12:13] in MODER
+	ldr r6, = GPIOC_MODER
 	ldr r5, [r6]
-	/* cannot do with movs, so use pc relative */
-	ldr r4, =0x3000
-	mvns r4, r4
-	ands r5, r5, r4
-	ldr r4, =0x1000
-	orrs r5, r5, r4
+	movs r4, 0x3 // r4 = 0000_0000_0000_0011
+	lsls r4, r4, #12 // r4 = 0011_0000_0000_0000
+	bics r5, r5, r4 //clean bits [12:13]
+	movs r4, 0x1 // r4 = 0000_0000_0000_0001
+	lsls r4, r4, #12 // r4 = 0001_0000_0000_0000
+	orrs r5, r5, r4 // write 01 to bits [12:13]
 	str r5, [r6]
 
 	/* turn on led connected to C6 in ODR */
-	ldr r6, =GPIOC_ODR
+	ldr r6, = GPIOC_ODR
 	ldr r5, [r6]
 	movs r4, 0x40
 	orrs r5, r5, r4

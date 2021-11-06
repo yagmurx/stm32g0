@@ -1,5 +1,5 @@
 /*
- * asm.s
+ * lab1_prob2.s
  *
  * author: Yagmur Yildiz
  *

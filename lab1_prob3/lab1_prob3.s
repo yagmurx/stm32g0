@@ -3,8 +3,10 @@
  *
  * author: Yagmur Yildiz
  *
- * PROBLEM 2: Write code that will light up the on-board LED connected to pin PC6.
+ * PROBLEM 2: Write code that will light up 4 external LEDs connected to the board.
  * DATE: 06.11.2021
+
+ * NOTE: I used PB5,6,8 and 9 as OUTPUT
  */
 
 
@@ -115,23 +117,40 @@ main:
 	orrs r5, r5, r4
 	str r5, [r6]
 
-	// Setup PB4 as OUTPUT, write 01 to bits [8:9] in MODER
-	ldr r6, = GPIOB_MODER
+	// Setup PB4/5 as OUTPUT, write 0101 to bits [8:11] in MODER
+	ldr r6, =GPIOB_MODER
 	ldr r5, [r6]
-	movs r4, #3 // r4 = 0000_0000_0000_0011
-	lsls r4, r4, #8 // r4 = 0000_011_0000_0000
-	bics r5, r5, r4 //clean bits [8:9]
-	movs r4, #1 // r4 = 0000_0000_0001_0000
-	lsls r4, r4, #8 // r4 = 0000_0001_0000_0000
-	orrs r5, r5, r4 // write 01 to bits [8:9]
+	movs r4, #15
+	lsls r4, r4, #8
+	bics r5, r5, r4 	//clean bits [8:11]
+	movs r4, #5
+	lsls r4, r4, #8
+	orrs r5, r5, r4 	// write 0101 to bits [8:11]
 	str r5, [r6]
 
-	/* turn on led connected to B4 in ODR */
-	ldr r6, = GPIOB_ODR
+	//Setup PB8/9 as OUTPUT, write 0101 to bits [16:19] in MODER
+	ldr r6, =GPIOB_MODER
 	ldr r5, [r6]
-	movs r4, 0x10
-	orrs r5, r5, r4
+	movs r4, #15
+	lsls r4, r4, #16
+	bics r5, r5, r4 	// clean bits [16:19]
+	movs r4, #5
+	lsls r4, r4, #16
+	orrs r5, r5, r4 	// write 0101 to bits [8:11]
 	str r5, [r6]
+
+
+	/* turn on led connected to B4,B5,B8 and B9 in ODR */
+	ldr r6, =GPIOB_ODR
+	ldr r5, [r6]
+	movs r4, #255		// r4 = 1111_1111
+	lsls r4, r4, #4
+	bics r5, r5, r4 	// clean bits [8:11] [16:19]
+	movs r4, #51  		// r4 = 0011_0011
+	lsls r4, #4
+	orrs r5, r5, r4		// r5 = 0011_0011_0000
+	str r5, [r6]
+
 
 	/* for(;;); */
 	b .

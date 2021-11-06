@@ -565,3 +565,15 @@ Reason: (8) Target held under reset.
 !SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.stlink 4 0 2021-11-06 07:59:08.561
 !MESSAGE Error in initializing ST-LINK device.
 Reason: (8) Target held under reset.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-11-06 08:17:59.148
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 5 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-11-06 08:17:59.240
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-11-06 08:17:59.329
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 5 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-11-06 08:17:59.330
+!MESSAGE Existing sessions are:

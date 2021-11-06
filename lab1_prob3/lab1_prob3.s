@@ -3,7 +3,7 @@
  *
  * author: Yagmur Yildiz
  *
- * PROBLEM 2: Write code that will light up 4 external LEDs connected to the board.
+ * PROBLEM 3: Write code that will light up 4 external LEDs connected to the board.
  * DATE: 06.11.2021
 
  * NOTE: I used PB5,6,8 and 9 as OUTPUT

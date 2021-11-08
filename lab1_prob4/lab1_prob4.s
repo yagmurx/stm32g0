@@ -6,6 +6,8 @@
  * PROBLEM 4: Write code that will light up 1 external LED
  *            connected to the board using an external push-button.
  * DATE: 08.11.2021
+ *
+ * NOTE: I used PB4 as OUTPUT, PB5 as INPUT
  */
 
 

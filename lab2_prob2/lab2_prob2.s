@@ -128,15 +128,6 @@ main:
 	movs r4, 0x3
 	orrs r5, r5, r4
 	str r5, [r6]
-/*
-	ldr r6, =GPIOA_MODER
-	ldr r5, [r6]
-	ldr r4, =0xC000
-	bics r5, r5, r4
-	ldr r4, =0x4000
-	orrs r5, r5, r4
-	str r5, [r6]
-*/
 
 	// Setup PA/4/5/6/7/8 as OUTPUT.
 	ldr r6, =GPIOA_MODER
@@ -169,6 +160,26 @@ main:
 	bics r5, r5, r4
 	str r5, [r6]
 
+	bl setleds
+
+	/* for(;;); */
+	b .
+
+	/* this should never get executed */
+	nop
+
+setleds:
+	ldr r6,=GPIOA_ODR
+	ldr r5, [r6]
+	ldr r5, =[0x0]
+	str r5, [r6]
+
+	ldr r6, =GPIOB_ODR
+	ldr r5, [r6]
+	ldr r5, =[0x0]
+	str r5, [r6]
+
+/*
 	//Turn on PA leds
 	ldr r6, =GPIOA_ODR
 	ldr r5, [r6]
@@ -190,10 +201,5 @@ main:
 	lsls r4, r4, #4
 	orrs r5, r5, r4
 	str r5, [r6]		// make 1 to OD/4/5/8/9
-
-	/* for(;;); */
-	b .
-
-	/* this should never get executed */
-	nop
+*/
 

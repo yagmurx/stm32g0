@@ -19,7 +19,7 @@ int main(void) {
     // Enable GPIOB clock
     RCC->IOPENR |= (1U << 1);
 
-    // Setup PB6 as output
+    // Setup PB4 as output
     GPIOB->MODER &= ~(3U << 2*4);
     GPIOB->MODER |= (1U << 2*4);
 

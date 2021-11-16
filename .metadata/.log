@@ -8730,3 +8730,41 @@ Reason: (8) Target held under reset.
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2021-11-16 12:05:34.775
 !MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY org.eclipse.core.resources 2 2 2021-11-16 12:22:53.107
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'asm' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'blinky' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'c_template' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab1_prob2' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab1_prob3' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab1_prob4' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab1_prob5' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab2_prob2' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab3_prob1' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'lab3_prob4' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:22:53.107
+!MESSAGE The project description file (.project) for 'standalone' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.ui.ide 4 4 2021-11-16 12:24:05.523
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2021-11-16 12:24:05.524
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:24:05.524
+!MESSAGE The project description file (.project) for 'pin_mode' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2021-11-16 12:24:05.524
+!MESSAGE The project description file (.project) for 'pin_write' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-11-16 12:24:06.433
+!MESSAGE The workspace will exit with unsaved changes in this session.

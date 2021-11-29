@@ -65,26 +65,18 @@ void ON_7SD(int x, int pins[]) {
 			pin_write('A', pins[3], 'h');		//PAX D
 			pin_write('A', pins[4], 'h');		//PAX E
 			pin_write('A', pins[5], 'h');		//PAX F
-			pin_write('A', pins[6], 'l');		//PAX G
 			break;
 
 		case 1:
-			pin_write('A', pins[0], 'l');		//PAX A
 			pin_write('A', pins[1], 'h');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
-			pin_write('A', pins[3], 'l');		//PAX D
-			pin_write('A', pins[4], 'l');		//PAX E
-			pin_write('A', pins[5], 'l');		//PAX F
-			pin_write('A', pins[6], 'l');		//PAX G
 			break;
 
 		case 2:
 			pin_write('A', pins[0], 'h');		//PAX A
 			pin_write('A', pins[1], 'h');		//PAX B
-			pin_write('A', pins[2], 'l');		//PAX C
 			pin_write('A', pins[3], 'h');		//PAX D
 			pin_write('A', pins[4], 'h');		//PAX E
-			pin_write('A', pins[5], 'l');		//PAX F
 			pin_write('A', pins[6], 'h');		//PAX G
 			break;
 
@@ -93,34 +85,26 @@ void ON_7SD(int x, int pins[]) {
 			pin_write('A', pins[1], 'h');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
 			pin_write('A', pins[3], 'h');		//PAX D
-			pin_write('A', pins[4], 'l');		//PAX E
-			pin_write('A', pins[5], 'l');		//PAX F
 			pin_write('A', pins[6], 'h');		//PAX G
 			break;
 
 		case 4:
-			pin_write('A', pins[0], 'l');		//PAX A
 			pin_write('A', pins[1], 'h');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
-			pin_write('A', pins[3], 'l');		//PAX D
-			pin_write('A', pins[4], 'l');		//PAX E
 			pin_write('A', pins[5], 'h');		//PAX F
 			pin_write('A', pins[6], 'h');		//PAX G
 			break;
 
 		case 5:
 			pin_write('A', pins[0], 'h');		//PAX A
-			pin_write('A', pins[1], 'l');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
 			pin_write('A', pins[3], 'h');		//PAX D
-			pin_write('A', pins[4], 'l');		//PAX E
 			pin_write('A', pins[5], 'h');		//PAX F
 			pin_write('A', pins[6], 'h');		//PAX G
 			break;
 
 		case 6:
 			pin_write('A', pins[0], 'h');		//PAX A
-			pin_write('A', pins[1], 'l');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
 			pin_write('A', pins[3], 'h');		//PAX D
 			pin_write('A', pins[4], 'h');		//PAX E
@@ -132,10 +116,6 @@ void ON_7SD(int x, int pins[]) {
 			pin_write('A', pins[0], 'h');		//PAX A
 			pin_write('A', pins[1], 'h');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
-			pin_write('A', pins[3], 'l');		//PAX D
-			pin_write('A', pins[4], 'l');		//PAX E
-			pin_write('A', pins[5], 'l');		//PAX F
-			pin_write('A', pins[6], 'l');		//PAX G
 			break;
 
 		case 8:
@@ -153,7 +133,6 @@ void ON_7SD(int x, int pins[]) {
 			pin_write('A', pins[1], 'h');		//PAX B
 			pin_write('A', pins[2], 'h');		//PAX C
 			pin_write('A', pins[3], 'h');		//PAX D
-			pin_write('A', pins[4], 'l');		//PAX E
 			pin_write('A', pins[5], 'h');		//PAX F
 			pin_write('A', pins[6], 'h');		//PAX G
 			break;

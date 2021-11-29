@@ -1,9 +1,9 @@
 /*
  * standart_functions.c
  *
- * author: Yagmur Yildiz
+ * AUTHOR: Yagmur Yildiz
  *
- * Description: this file includes;
+ * DESCRIPTION: this file includes;
  *
  * 		pin_mode function: Used for adjust any GPIOX_MODER as INPUT or OUTPUT.
  * 							pin_mode(char type, int gpio_pin, char reg_io);
@@ -20,19 +20,58 @@
  * 							EX: delay(1600000)
  *
  *  DATE: 16.11.2021
+ *  LAST UPDATE: 29.11.2021
  */
 
 #include "stm32g0xx.h"
 
-#define LEDDELAY    1600000
+/* delay function */
+void delay(volatile uint32_t s) {
+    for(; s>0; s--);
+}
+
+void set_on_board_led()
+{
+	RCC->IOPENR |= (1U << 2); //ENABLE GPIOC Clock
+
+    GPIOC->MODER &= ~(3U << 2*6);
+    GPIOC->MODER |= (1U << 2*6);
+}
+void on_board_led(volatile uint32_t LEDDELAY)
+{
+	if (LEDDELAY == 0)
+		GPIOC->ODR |= (1U << 6);
+
+	else if(LEDDELAY == 1)
+		GPIOC->ODR &= ~(3U << 6);
+	else
+	{
+		GPIOC->ODR |= (1U << 6); // HIGH PC6
+		delay(LEDDELAY);
+		GPIOC->ODR &= ~(3U << 6); // LOW PC6
+		delay(LEDDELAY);
+	}
+}
+
+void enable_clock(char type)
+{
+	switch (type)
+	{
+		case 'A':
+			RCC->IOPENR |= 1U; 		  // Enable GPIOA clock
+			break;
+
+		case 'B':
+			RCC->IOPENR |= (1U << 1); // Enable GPIOB clock
+			break;
+	}
+}
 
 /* pin_mode function */
 void pin_mode(char type, int gpio_pin, char reg_io)
 {
 	if (type == 'A')
 	{
-	    /* Enable GPIOA clock */
-	    RCC->IOPENR |= 1U;
 
 	    if(reg_io == 'o')
 	    {
@@ -50,8 +89,6 @@ void pin_mode(char type, int gpio_pin, char reg_io)
 	}
 	else if (type == 'B')
 	{
-	    /* Enable GPIOB clock */
-	    RCC->IOPENR |= (1U << 1);
 
 	    if(reg_io == 'o')
 	    {
@@ -93,9 +130,4 @@ void pin_write(char type, int gpio_pin, char status)
 				GPIOB->ODR &= ~(3U << gpio_pin);
 		}
 
-}
-
-/* delay function */
-void delay(volatile uint32_t s) {
-    for(; s>0; s--);
 }

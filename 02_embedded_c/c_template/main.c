@@ -16,14 +16,18 @@ void pin_write(char type, int gpio_pin, char status);
 
 int main(void) {
 
-	/*pin_write function example */
-	pin_mode('A', 7, 'o');
-
     while(1) {
-        pin_write('A', 7, 'h');
-        delay(LEDDELAY);
-		pin_write('A', 7, 'l');
-		delay(LEDDELAY);
+    	set_on_board_led();
+
+    	on_board_led(1);
+    	delay(LEDDELAY);
+    	delay(LEDDELAY);
+    	on_board_led(0);
+    	delay(LEDDELAY);
+    	delay(LEDDELAY);
+
+    	for(int i=0; i < 5; i++)
+    		on_board_led(LEDDELAY);
     }
     return 0;
 }

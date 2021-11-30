@@ -20,7 +20,7 @@
  * 							EX: delay(1600000)
  *
  *  DATE: 16.11.2021
- *  LAST UPDATE: 29.11.2021
+ *  LAST UPDATE: 30.11.2021
  */
 
 #include "stm32g0xx.h"
@@ -113,6 +113,7 @@ void pin_write(char type, int gpio_pin, char status)
 int pin_read(char type, int gpio_pin)
 {
 	int status;
+
 	if(type == 'A')
 		status = ((GPIOA->IDR >> gpio_pin) & 1);
 	else if(type == 'B')

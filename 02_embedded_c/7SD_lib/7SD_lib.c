@@ -8,7 +8,7 @@
  *
  * 				PIN OUTS:
  * 				A->PA0, B->PA1, C->PA4, D->PA5, E->PA12, F->PA11, G->PA6
- * 				D1->PB6, D2->PA7
+ * 				D1->PB6, D2->PB7
  *
  * DATE: 29.11.2021
  */

@@ -15,15 +15,14 @@
 
 int main(void) {
 
-	set_on_board_led();
-	set_on_board_button();
+	enable_clock('A');
+	pin_mode('A', 4, 'o');
 
 	while(1) {
-		if(read_on_board_button() == 1)
-			on_board_led(1);
-		else if (read_on_board_button() == 0)
-			on_board_led(0);
-
+		pin_write('A', 4, 'h');
+		delay(LEDDELAY);
+		pin_write('A', 4, 'l');
+		delay(LEDDELAY);
     }
     return 0;
 }
